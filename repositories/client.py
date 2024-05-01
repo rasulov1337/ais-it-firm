@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from ast import List
 
 from PyQt6.QtSql import QSqlDatabase, QSqlQuery
 

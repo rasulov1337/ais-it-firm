@@ -1,6 +1,6 @@
 ﻿from PyQt6 import uic
 from PyQt6.QtCore import pyqtSignal
-from PyQt6.QtWidgets import QWidget, QMessageBox
+from PyQt6.QtWidgets import QWidget, QMessageBox, QComboBox
 
 from repositories.employee import employee_repo_impl, Employee
 from repositories.dev_group import dev_group_repo_impl
@@ -18,7 +18,7 @@ class EmployeeInfoWindow(QWidget):
         self.de_birth.setCalendarPopup(True)
 
         for i in dev_group_repo_impl.get_all():
-            self.cb_group.addItem(i.name)
+            self.cb_group.addItem(i.name, i.id)
 
         self.prev_btn.clicked.connect(self.show_prev)
         self.next_btn.clicked.connect(self.show_next)
@@ -49,7 +49,7 @@ class EmployeeInfoWindow(QWidget):
         self.le_salary.setText(curr_data.salary)
         self.de_hire.setDate(curr_data.hire_date)
         self.de_birth.setDate(curr_data.birth_date)
-        self.cb_group.setCurrentIndex(curr_data.dev_group_id)
+        self.cb_group.setCurrentText(dev_group_repo_impl.get(curr_data.dev_group_id).name)
 
     def show_prev(self):
         if self.current_index < 1:
@@ -73,15 +73,13 @@ class EmployeeInfoWindow(QWidget):
         msg_box.exec()
 
     def update(self):
-        print(self.cb_group.currentIndex())
         row_data = Employee(self.data[self.current_index].id,
                             self.le_fullname.text(),
                             self.de_birth.date().toString('yyyy-MM-dd'),
                             self.de_hire.date().toString('yyyy-MM-dd'),
                             self.le_salary.text(),
-                            self.cb_group.currentIndex())
+                            self.cb_group.currentData())
 
-        res = 0
         if row_data.id == 0:
             res = employee_repo_impl.create(row_data)
         else:

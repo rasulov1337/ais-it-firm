@@ -9,10 +9,10 @@ from consts import *
 class Employee:
     def __init__(self,
                  id_=0,
-                 fullname='',
+                 fullname=None,
                  birth_date=QDate.currentDate(),
                  hire_date=QDate.currentDate(),
-                 salary='0',
+                 salary=None,
                  dev_group_id=0):
         self.id = id_
         self.fullname = fullname

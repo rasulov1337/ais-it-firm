@@ -31,17 +31,15 @@ class BaseInfoWindow(QWidget):
         self.save_btn.clicked.connect(self.update)
         self.del_btn.clicked.connect(self.delete)
         self.back_btn.clicked.connect(self.go_back)
-        self.le_search.returnPressed.connect(self.search)
 
         self.current_index = 0
         self.update_gui_data()
 
-    def update_gui_data(self):
-        client_name = self.le_search.text()
-        if len(client_name) == 0:
+    def update_gui_data(self, data_source=None):
+        if not data_source:
             self.data = self.repo_impl.get_all() + [self.model_class()]
         else:
-            self.data = self.repo_impl.find_by_name(client_name) + [self.model_class()]
+            self.data = data_source + [self.model_class()]
 
         self.show_at_curr_index()
 
@@ -96,7 +94,3 @@ class BaseInfoWindow(QWidget):
             self.show_at_curr_index()
         else:
             create_msg_box('Could not delete client')
-
-    def search(self):
-        self.current_index = 0
-        self.update_gui_data()

@@ -79,20 +79,6 @@ QLineEdit {
      <property name="verticalSpacing">
       <number>5</number>
      </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Поиск по ФИО/Названию</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="le_search">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item>
