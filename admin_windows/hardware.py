@@ -1,12 +1,12 @@
 from PyQt6.QtWidgets import QLineEdit, QComboBox, QSpinBox
 
 from admin_windows.base_window import BaseInfoWindow
-from repositories.tech_eq import tech_eq_repo_impl, TechEqModel
+from repositories.hardware import hardware_repo_impl, HardwareModel
 
 
-class TechEqInfoWindow(BaseInfoWindow):
+class HardwareInfoWindow(BaseInfoWindow):
     def __init__(self):
-        super().__init__(TechEqModel, tech_eq_repo_impl)
+        super().__init__(HardwareModel, hardware_repo_impl)
 
     def init_gui(self):
         self.le_id = QLineEdit()
@@ -37,14 +37,14 @@ class TechEqInfoWindow(BaseInfoWindow):
 
     def gather_data_from_gui_into_object(self):
         curr_id = self.data[self.current_index].id
-        return TechEqModel(curr_id,
-                           self.le_internet_speed.text(),
-                           self.le_gpu.text(),
-                           self.le_cpu.text(),
-                           self.sb_ram.value())
+        return HardwareModel(curr_id,
+                             self.le_internet_speed.text(),
+                             self.le_gpu.text(),
+                             self.le_cpu.text(),
+                             self.sb_ram.value())
 
     def show_at_curr_index(self):
-        curr_data: TechEqModel = self.data[self.current_index]
+        curr_data: HardwareModel = self.data[self.current_index]
         self.le_id.setText(str(curr_data.id))
         self.le_internet_speed.setText(str(curr_data.internet_speed))
         self.le_gpu.setText(curr_data.gpu)

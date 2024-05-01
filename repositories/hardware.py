@@ -3,7 +3,7 @@ from PyQt6.QtSql import QSqlQuery
 from repositories.base import BaseRepository, ABC
 
 
-class TechEqModel:
+class HardwareModel:
     def __init__(self,
                  id=0,
                  internet_speed=0,
@@ -17,12 +17,12 @@ class TechEqModel:
         self.ram = ram
 
 
-class TechEqRepository(BaseRepository, ABC):
+class HardwareRepository(BaseRepository, ABC):
     pass
 
 
-class TechEqRepositoryImpl(TechEqRepository):
-    def get_all(self) -> list[TechEqModel]:
+class HardwareRepositoryImpl(HardwareRepository):
+    def get_all(self) -> list[HardwareModel]:
         query_text = 'SELECT * FROM tech_eqs ORDER BY id'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
@@ -32,7 +32,7 @@ class TechEqRepositoryImpl(TechEqRepository):
 
         res = []
         while query.next():
-            res.append(TechEqModel(query.value(0),
+            res.append(HardwareModel(query.value(0),
                                    query.value(1),
                                    query.value(2),
                                    query.value(3),
@@ -48,7 +48,7 @@ class TechEqRepositoryImpl(TechEqRepository):
 
         return query.exec()
 
-    def update(self, data: TechEqModel):
+    def update(self, data: HardwareModel):
         query_text = "UPDATE tech_eqs SET internet_speed=?, gpu=?, cpu=?, ram=? WHERE id=?"
 
         query = QSqlQuery(self.db)
@@ -61,7 +61,7 @@ class TechEqRepositoryImpl(TechEqRepository):
 
         return query.exec()
 
-    def create(self, data: TechEqModel):
+    def create(self, data: HardwareModel):
         query_text = 'INSERT INTO tech_eqs (internet_speed, gpu, cpu, ram) VALUES (?, ?, ?, ?)'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
@@ -75,4 +75,4 @@ class TechEqRepositoryImpl(TechEqRepository):
         return query.exec()
 
 
-tech_eq_repo_impl = TechEqRepositoryImpl()
+hardware_repo_impl = HardwareRepositoryImpl()

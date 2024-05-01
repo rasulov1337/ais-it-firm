@@ -7,7 +7,7 @@ from admin_windows.dev_group import DevGroupInfoWindow
 from admin_windows.account import AccountInfoWindow
 from admin_windows.order import OrderInfoWindow
 from admin_windows.program import ProgramInfoWindow
-from admin_windows.tech_eq import TechEqInfoWindow
+from admin_windows.hardware import HardwareInfoWindow
 from admin_windows.tech_stack import TechStackInfoWindow
 
 
@@ -50,7 +50,7 @@ class AdminWindow(QWidget):
 
     @pyqtSlot()
     def on_tech_eqs_btn_clicked(self):
-        self.tech_eq_info_window = TechEqInfoWindow()
+        self.tech_eq_info_window = HardwareInfoWindow()
         self.tech_eq_info_window.show()
 
     @pyqtSlot()
