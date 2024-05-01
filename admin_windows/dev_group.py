@@ -19,11 +19,6 @@ class DevGroupInfoWindow(BaseInfoWindow):
             self.cb_tech_stack.addItem(i.tech_stack)
 
         self.tw_employees = QTableWidget()
-        self.tw_employees.setStyleSheet("""
-QHeaderView::section {
-	background-color: black;
-	color: white;
-}""")
 
         self.tw_employees.setColumnCount(4)
         self.tw_employees.setHorizontalHeaderItem(0, QTableWidgetItem('ФИО'))

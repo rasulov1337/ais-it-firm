@@ -44,7 +44,7 @@ class TechStackRepositoryImpl(TechStackRepository):
 
         query = QSqlQuery(self.db)
         query.prepare(query_text)
-        query.addBindValue(data.stack_name)
+        query.addBindValue(data.tech_stack)
         query.addBindValue(data.id)
 
         return query.exec()
@@ -54,8 +54,6 @@ class TechStackRepositoryImpl(TechStackRepository):
         query = QSqlQuery(self.db)
         query.prepare(query_text)
         query.addBindValue(data.tech_stack)
-
-        print(query.lastQuery())
 
         return query.exec()
 

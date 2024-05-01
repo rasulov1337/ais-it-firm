@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>748</width>
-    <height>512</height>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,6 +49,20 @@ QFrame#frame {
 
 QLineEdit {
 	min-height: 20px;
+	border: 1px solid white;
+}
+
+QHeaderView::section {
+	background-color: black;
+	color: white;
+}
+
+QComboBox {
+	color: white;
+	border: 1px solid white;
+}
+
+QDateEdit {
 	border: 1px solid white;
 }</string>
   </property>

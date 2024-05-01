@@ -79,8 +79,6 @@ class OrderRepositoryImpl(OrderRepository):
         query.addBindValue(data.creation_date)
         query.addBindValue(data.done)
 
-        print(query.lastQuery())
-
         return query.exec()
 
 

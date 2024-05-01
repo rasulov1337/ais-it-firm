@@ -75,8 +75,6 @@ class ProgramRepositoryImpl(ProgramRepository):
         query.addBindValue(data.order_id)
         query.addBindValue(data.dev_group_id)
 
-        print(query.lastQuery())
-
         return query.exec()
 
     def get_programs_by_order_id(self, order_id: int):

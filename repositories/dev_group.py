@@ -67,8 +67,6 @@ class DevGroupRepositoryImpl(DevGroupRepository):
         query.addBindValue(data.name)
         query.addBindValue(data.tech_stack)
 
-        print(query.lastQuery())
-
         return query.exec()
 
     def update(self, data):

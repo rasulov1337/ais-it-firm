@@ -111,8 +111,6 @@ class EmployeeRepositoryImpl(EmployeeRepository):
         query.addBindValue(data.hire_date)
         query.addBindValue(data.dev_group_id)
 
-        print(query.lastQuery())
-
         return query.exec()
 
     def find_by_name(self, fullname: str) -> list[Employee]:
