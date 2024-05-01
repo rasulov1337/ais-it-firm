@@ -23,6 +23,7 @@ class BaseInfoWindow(QWidget):
         self.repo_impl = repo_impl
 
         self.form_layout = self.formLayout
+        self.search_results = None
 
         self.init_gui()
 
@@ -35,11 +36,11 @@ class BaseInfoWindow(QWidget):
         self.current_index = 0
         self.update_gui_data()
 
-    def update_gui_data(self, data_source=None):
-        if not data_source:
+    def update_gui_data(self):
+        if self.search_results is None:
             self.data = self.repo_impl.get_all() + [self.model_class()]
         else:
-            self.data = data_source + [self.model_class()]
+            self.data = self.search_results + [self.model_class()]
 
         self.show_at_curr_index()
 

@@ -98,4 +98,26 @@ class ProgramRepositoryImpl(ProgramRepository):
         return res
 
 
+    def get_programs_by_name(self, name: str):
+        query_text = 'SELECT * FROM programs WHERE name LIKE ?'
+        query = QSqlQuery(self.db)
+        query.prepare(query_text)
+        query.addBindValue(name + '%')
+
+        if not query.exec():
+            print("Couldn't execute the query!")
+            return []
+
+        res = []
+        while query.next():
+            res.append(ProgramModel(query.value(0),
+                                    query.value(1),
+                                    query.value(2),
+                                    query.value(3),
+                                    query.value(4),
+                                    query.value(5)))
+
+        return res
+
+
 program_repo_impl = ProgramRepositoryImpl()

@@ -13,6 +13,7 @@ class ProgramInfoWindow(BaseInfoWindow):
         super().__init__(ProgramModel, program_repo_impl)
 
     def init_gui(self):
+        self.le_search = QLineEdit()
         self.le_name = QLineEdit()
         self.le_repo = QLineEdit()
         self.le_client = QLineEdit()
@@ -21,6 +22,8 @@ class ProgramInfoWindow(BaseInfoWindow):
         self.cb_dev_group_id = QComboBox()
 
         self.le_client.setDisabled(True)
+
+        self.le_search.returnPressed.connect(self.on_search_field_edit_finished)
 
         self.clients: list[ClientModel] = client_repository_impl.get_all()
         self.orders: list[OrderModel] = order_repo_impl.get_all()
@@ -34,6 +37,7 @@ class ProgramInfoWindow(BaseInfoWindow):
         for i in tech_stack_repo_impl.get_all():
             self.cb_tech_stack.addItem(i.tech_stack)
 
+        self.form_layout.addRow('Поиск по названию', self.le_search)
         self.form_layout.addRow('Название', self.le_name)
         self.form_layout.addRow('Репозиторий', self.le_repo)
         self.form_layout.addRow('Технологический стек', self.cb_tech_stack)
@@ -69,3 +73,12 @@ class ProgramInfoWindow(BaseInfoWindow):
         for i in self.dev_groups:
             if i.id == curr_data.dev_group_id:
                 self.cb_dev_group_id.setCurrentText(i.name)
+
+    def on_search_field_edit_finished(self):
+        search_query = self.le_search.text()
+        if len(search_query) == 0:
+            self.search_results = None
+        else:
+            self.search_results = program_repo_impl.get_programs_by_name(search_query)
+        self.current_index = 0
+        self.update_gui_data()
