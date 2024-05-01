@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>808</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background: #262626;
+	color: white;
+	selection-background-color: #2cde85;
+	selection-color: black;
+}
+
+
+QPushButton {
+	border-radius: 5px;
+	border: 1px solid white;
+	color: white;
+}
+
+QMessageBox QPushButton{
+min-width: 85px;
+
+	min-height: 25px;
+}
+
+QPushButton::hover {
+	background: #2cde85;	
+	color: black;
+	border: none;
+}
+
+QFrame#frame {
+	/*background-color: white;*/
+	border: 1px solid white;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>3</number>
+    </property>
+    <property name="leftMargin">
+     <number>150</number>
+    </property>
+    <property name="rightMargin">
+     <number>150</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="auth_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>72</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Авторизация</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="about_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>72</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Информация о разработчике</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="close_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>72</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Выйти из приложения</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

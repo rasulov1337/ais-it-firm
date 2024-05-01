@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>869</width>
+    <height>696</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background: #262626;
+	color: white;
+	selection-background-color: #2cde85;
+	selection-color: black;
+}
+
+
+QPushButton {
+	border-radius: 5px;
+	border: 1px solid white;
+	color: white;
+}
+
+QPushButton::hover {
+	background: #2cde85;	
+	color: black;
+	border: none;
+
+}
+
+QFrame#frame {
+	/*background-color: white;*/
+	border: 1px solid white;
+}
+
+
+QLineEdit {
+	min-height: 20px;
+	border: 1px solid white;
+}</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>30</y>
+     <width>541</width>
+     <height>631</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>1</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>АИС IT Фирмы</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="clients_btn">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Клиенты</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="dev_groups_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Группы разработки</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="employees_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Сотрудники</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="orders_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Заказы</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="programs_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Программы</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="tech_eqs_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Тех. Оборудование</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="tech_stacks_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Технический Стек</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="accounts_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Пользователи АИС</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Глобальные Отчеты</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="back_btn">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>630</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Выйти</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
