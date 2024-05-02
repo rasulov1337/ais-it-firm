@@ -6,7 +6,7 @@ from PyQt6.QtSql import QSqlDatabase, QSqlQuery
 from consts import *
 
 
-class Employee:
+class EmployeeModel:
     def __init__(self,
                  id_=0,
                  fullname=None,
@@ -24,7 +24,7 @@ class Employee:
 
 class EmployeeRepository(ABC):
     @abstractmethod
-    def get_all(self) -> list[Employee]:
+    def get_all(self) -> list[EmployeeModel]:
         pass
 
     @abstractmethod
@@ -32,15 +32,15 @@ class EmployeeRepository(ABC):
         pass
 
     @abstractmethod
-    def update(self, data: Employee):
+    def update(self, data: EmployeeModel):
         pass
 
     @abstractmethod
-    def create(self, data: Employee):
+    def create(self, data: EmployeeModel):
         pass
 
     @abstractmethod
-    def find_by_name(self, fullname: str) -> list[Employee]:
+    def find_by_name(self, fullname: str) -> list[EmployeeModel]:
         pass
 
 
@@ -69,12 +69,12 @@ class EmployeeRepositoryImpl(EmployeeRepository):
 
         res = []
         while query.next():
-            res.append(Employee(query.value(0),
-                                query.value(1),
-                                query.value(2),
-                                query.value(4),
-                                query.value(3),
-                                query.value(5)))
+            res.append(EmployeeModel(query.value(0),
+                                     query.value(1),
+                                     query.value(2),
+                                     query.value(4),
+                                     query.value(3),
+                                     query.value(5)))
 
         return res
 
@@ -86,7 +86,7 @@ class EmployeeRepositoryImpl(EmployeeRepository):
 
         return query.exec()
 
-    def update(self, data: Employee):
+    def update(self, data: EmployeeModel):
         query_text = "UPDATE employees SET fullname=?, birth_date=?, salary=?, hire_date=?, dev_group_id=? WHERE id=?"
 
         query = QSqlQuery(self.db)
@@ -100,7 +100,7 @@ class EmployeeRepositoryImpl(EmployeeRepository):
 
         return query.exec()
 
-    def create(self, data: Employee):
+    def create(self, data: EmployeeModel):
         query_text = ('INSERT INTO employees (fullname, birth_date, salary, hire_date, dev_group_id) '
                       'VALUES (?, ?, ?, ?, ?)')
         query = QSqlQuery(self.db)
@@ -113,7 +113,7 @@ class EmployeeRepositoryImpl(EmployeeRepository):
 
         return query.exec()
 
-    def find_by_name(self, fullname: str) -> list[Employee]:
+    def find_by_name(self, fullname: str) -> list[EmployeeModel]:
         query_text = 'SELECT * FROM employees WHERE fullname LIKE ?'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
@@ -126,16 +126,16 @@ class EmployeeRepositoryImpl(EmployeeRepository):
         res = []
 
         while query.next():
-            res.append(Employee(query.value(0),
-                                query.value(1),
-                                query.value(2),
-                                query.value(4),
-                                query.value(3),
-                                query.value(5)))
+            res.append(EmployeeModel(query.value(0),
+                                     query.value(1),
+                                     query.value(2),
+                                     query.value(4),
+                                     query.value(3),
+                                     query.value(5)))
 
         return res
 
-    def get_employees_by_dev_group_id(self, dev_group_id: int) -> list[Employee]:
+    def get_employees_by_dev_group_id(self, dev_group_id: int) -> list[EmployeeModel]:
         query_text = 'SELECT * FROM employees WHERE dev_group_id=?'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
@@ -148,12 +148,38 @@ class EmployeeRepositoryImpl(EmployeeRepository):
         res = []
 
         while query.next():
-            res.append(Employee(query.value(0),
-                                query.value(1),
-                                query.value(2),
-                                query.value(4),
-                                query.value(3),
-                                query.value(5)))
+            res.append(EmployeeModel(query.value(0),
+                                     query.value(1),
+                                     query.value(2),
+                                     query.value(4),
+                                     query.value(3),
+                                     query.value(5)))
+
+        return res
+
+    def get_employees_by_hardware_id(self, hardware_id) -> list[EmployeeModel]:
+        query_text = """
+        SELECT employees.* FROM hardware
+JOIN employees_hardwares ON employees_hardwares.hardware_id=hardware.id
+JOIN employees ON employees.id = employees_hardwares.employee_id
+WHERE hardware.id=?"""
+        query = QSqlQuery(self.db)
+        query.prepare(query_text)
+        query.addBindValue(hardware_id)
+
+        if not query.exec():
+            print("Couldn't execute the query!")
+            return []
+
+        res = []
+
+        while query.next():
+            res.append(EmployeeModel(query.value(0),
+                                     query.value(1),
+                                     query.value(2),
+                                     query.value(4),
+                                     query.value(3),
+                                     query.value(5)))
 
         return res
 

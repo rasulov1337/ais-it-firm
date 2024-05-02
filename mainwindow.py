@@ -1,6 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
 from adminwindow import AdminWindow
+from client.client_window import ClientWindow
 from repositories.account import account_repo_impl, AccountModel
 
 
@@ -53,3 +54,5 @@ class MainWindow(QMainWindow):
         if user.type == AccountModel.Type.ADMIN:
             self.admin_window.show()
             self.hide()
+        elif user.type == AccountModel.Type.USER:
+            self.client_window = ClientWindow(user.client_id)

@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtCore import pyqtSignal, pyqtSlot
 from PyQt6.QtWidgets import QWidget
-from admin_windows.client_info import ClientInfoWindow
+from admin_windows.client import ClientInfoWindow
 from admin_windows.employee import EmployeeInfoWindow
 from admin_windows.dev_group import DevGroupInfoWindow
 from admin_windows.account import AccountInfoWindow

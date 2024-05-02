@@ -46,6 +46,27 @@ class OrderRepositoryImpl(OrderRepository):
 
         return res
 
+    def get_orders_by_client_id(self, user_id) -> list[OrderModel] | None:
+        query_text = 'SELECT * FROM orders WHERE client_id=?'
+        query = QSqlQuery(self.db)
+        query.prepare(query_text)
+        query.addBindValue(user_id)
+
+        if not query.exec():
+            print('E: Could not execute the query!')
+            return None
+
+        res = []
+        while query.next():
+            res.append(OrderModel(query.value(0),
+                                  query.value(1),
+                                  query.value(2),
+                                  query.value(3),
+                                  query.value(4),
+                                  query.value(5)))
+
+        return res
+
     def delete(self, id):
         query_text = 'DELETE FROM orders WHERE id=?'
         query = QSqlQuery(self.db)

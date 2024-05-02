@@ -1,5 +1,6 @@
 from PyQt6.QtCore import QDate
-from PyQt6.QtWidgets import QLineEdit, QTableWidget, QTableWidgetItem, QHeaderView, QDateEdit, QComboBox, QCheckBox
+from PyQt6.QtWidgets import QLineEdit, QTableWidget, QTableWidgetItem, QHeaderView, QDateEdit, QComboBox, QCheckBox, \
+    QAbstractItemView
 
 from repositories.dev_group import dev_group_repo_impl
 from repositories.order import order_repo_impl, OrderModel
@@ -30,11 +31,6 @@ class OrderInfoWindow(BaseInfoWindow):
             self.cb_client.addItem(i.fullname, i.id)
 
         self.tw_programs = QTableWidget()
-        self.tw_programs.setStyleSheet("""
-QHeaderView::section {
-	background-color: black;
-	color: white;
-}""")
 
         self.tw_programs.setColumnCount(4)
         self.tw_programs.setHorizontalHeaderItem(0, QTableWidgetItem('Название'))

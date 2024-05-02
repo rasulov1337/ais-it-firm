@@ -23,7 +23,7 @@ class HardwareRepository(BaseRepository, ABC):
 
 class HardwareRepositoryImpl(HardwareRepository):
     def get_all(self) -> list[HardwareModel]:
-        query_text = 'SELECT * FROM tech_eqs ORDER BY id'
+        query_text = 'SELECT * FROM hardware ORDER BY id'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
 
@@ -41,7 +41,7 @@ class HardwareRepositoryImpl(HardwareRepository):
         return res
 
     def delete(self, id):
-        query_text = 'DELETE FROM tech_eqs WHERE id=?'
+        query_text = 'DELETE FROM hardware WHERE id=?'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
         query.addBindValue(id)
@@ -49,7 +49,7 @@ class HardwareRepositoryImpl(HardwareRepository):
         return query.exec()
 
     def update(self, data: HardwareModel):
-        query_text = "UPDATE tech_eqs SET internet_speed=?, gpu=?, cpu=?, ram=? WHERE id=?"
+        query_text = "UPDATE hardware SET internet_speed=?, gpu=?, cpu=?, ram=? WHERE id=?"
 
         query = QSqlQuery(self.db)
         query.prepare(query_text)
@@ -62,7 +62,7 @@ class HardwareRepositoryImpl(HardwareRepository):
         return query.exec()
 
     def create(self, data: HardwareModel):
-        query_text = 'INSERT INTO tech_eqs (internet_speed, gpu, cpu, ram) VALUES (?, ?, ?, ?)'
+        query_text = 'INSERT INTO hardware (internet_speed, gpu, cpu, ram) VALUES (?, ?, ?, ?)'
         query = QSqlQuery(self.db)
         query.prepare(query_text)
         query.addBindValue(data.internet_speed)

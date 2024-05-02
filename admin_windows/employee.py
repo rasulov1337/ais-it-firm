@@ -2,7 +2,7 @@
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import QWidget, QMessageBox, QComboBox
 
-from repositories.employee import employee_repo_impl, Employee
+from repositories.employee import employee_repo_impl, EmployeeModel
 from repositories.dev_group import dev_group_repo_impl
 
 
@@ -33,9 +33,9 @@ class EmployeeInfoWindow(QWidget):
     def update_gui_data(self):
         client_name = self.le_search.text()
         if len(client_name) == 0:
-            self.data = employee_repo_impl.get_all() + [Employee()]
+            self.data = employee_repo_impl.get_all() + [EmployeeModel()]
         else:
-            self.data = employee_repo_impl.find_by_name(client_name) + [Employee()]
+            self.data = employee_repo_impl.find_by_name(client_name) + [EmployeeModel()]
 
         self.show_at_curr_index()
 
@@ -73,12 +73,12 @@ class EmployeeInfoWindow(QWidget):
         msg_box.exec()
 
     def update(self):
-        row_data = Employee(self.data[self.current_index].id,
-                            self.le_fullname.text(),
-                            self.de_birth.date().toString('yyyy-MM-dd'),
-                            self.de_hire.date().toString('yyyy-MM-dd'),
-                            self.le_salary.text(),
-                            self.cb_group.currentData())
+        row_data = EmployeeModel(self.data[self.current_index].id,
+                                 self.le_fullname.text(),
+                                 self.de_birth.date().toString('yyyy-MM-dd'),
+                                 self.de_hire.date().toString('yyyy-MM-dd'),
+                                 self.le_salary.text(),
+                                 self.cb_group.currentData())
 
         if row_data.id == 0:
             res = employee_repo_impl.create(row_data)

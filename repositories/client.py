@@ -14,6 +14,7 @@ class ClientModel:
         self.email = email
         self.is_company = is_company
 
+
 class ClientRepository(ABC):
     @abstractmethod
     def create(self, data: ClientModel):
@@ -69,7 +70,21 @@ class ClientRepositoryImpl(ClientRepository):
         return query.exec()
 
     def get(self, id):
-        pass
+        query_text = 'SELECT * FROM clients WHERE id=?'
+        query = QSqlQuery(self.db)
+        query.prepare(query_text)
+        query.addBindValue(id)
+
+        if not query.exec():
+            exit("Couldn't execute the query!" + self.db.lastError().databaseText())
+
+        query.next()
+        return ClientModel(query.value(0),
+                           query.value(1),
+                           query.value(2),
+                           query.value(3),
+                           query.value(4),
+                           query.value(5))
 
     def update(self, data):
         query_text = "UPDATE clients SET fullname=?, telephone=?, address=?, email=?, is_company=? WHERE id=?"
@@ -147,7 +162,6 @@ class ClientRepositoryImpl(ClientRepository):
                                    query.value(5)))
 
         return res
-
 
 
 client_repository_impl = ClientRepositoryImpl()
