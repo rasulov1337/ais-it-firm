@@ -3,6 +3,7 @@ from PyQt6.QtCore import pyqtSignal, pyqtSlot
 from PyQt6.QtWidgets import QWidget
 
 import consts
+from client.client_report import ReportWindow
 from repositories.client import client_repository_impl
 
 from client.about import AboutWindow
@@ -16,7 +17,7 @@ class ClientWindow(QWidget):
         super().__init__()
         self.data = client_repository_impl.get(id)
         uic.loadUi('client/client_main.ui', self)
-        self.setStyleSheet(consts.stylesheet)
+        self.setStyleSheet(consts.STYLESHEET)
 
     @pyqtSlot()
     def on_back_btn_clicked(self):
@@ -32,3 +33,12 @@ class ClientWindow(QWidget):
     def on_open_orders_btn_clicked(self):
         self.client_orders_window = ClientOrdersWindow(self.data.id)
         self.client_orders_window.show()
+
+    @pyqtSlot()
+    def on_create_report_btn_clicked(self):
+        self.report_window = ReportWindow(self.data.id)
+        self.report_window.show()
+
+    @pyqtSlot()
+    def on_close_btn_clicked(self):
+        self.close()

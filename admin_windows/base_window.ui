@@ -96,12 +96,15 @@ QDateEdit {
     </layout>
    </item>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="btns_widget" native="true">
      <property name="maximumSize">
       <size>
        <width>16777215</width>
        <height>140</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="sizeConstraint">
@@ -117,9 +120,12 @@ QDateEdit {
         </property>
         <property name="maximumSize">
          <size>
-          <width>50</width>
+          <width>34</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">max-width: 32px;</string>
         </property>
         <property name="text">
          <string>&lt;-</string>
@@ -140,9 +146,12 @@ QDateEdit {
         </property>
         <property name="maximumSize">
          <size>
-          <width>50</width>
+          <width>34</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">max-width: 32px;</string>
         </property>
         <property name="text">
          <string>-&gt;</string>

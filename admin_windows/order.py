@@ -58,7 +58,7 @@ class OrderInfoWindow(BaseInfoWindow):
     def show_at_curr_index(self):
         curr_data = self.data[self.current_index]
         self.le_order_id.setText(str(curr_data.id))
-        self.le_price.setText(curr_data.price)
+        self.le_price.setText(str(curr_data.price))
         self.de_deadline.setDate(curr_data.deadline)
         self.de_creation_date.setDate(curr_data.creation_date)
         self.checkbox_done.setChecked(curr_data.done)

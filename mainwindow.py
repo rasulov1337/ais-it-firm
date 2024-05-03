@@ -56,3 +56,5 @@ class MainWindow(QMainWindow):
             self.hide()
         elif user.type == AccountModel.Type.USER:
             self.client_window = ClientWindow(user.client_id)
+            self.client_window.show()
+            self.hide()

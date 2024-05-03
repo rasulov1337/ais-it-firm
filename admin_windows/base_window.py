@@ -1,15 +1,8 @@
 from abc import abstractmethod, ABC
 from PyQt6 import uic
 from PyQt6.QtCore import pyqtSignal
-from PyQt6.QtWidgets import QWidget, QMessageBox
-
-
-def create_msg_box(text):
-    msg_box = QMessageBox()
-    msg_box.setText(text)
-    msg_box.setWindowTitle('Ошибка')
-    msg_box.setIcon(QMessageBox.Icon.Warning)
-    msg_box.exec()
+from PyQt6.QtWidgets import QWidget
+from utils import create_msg_box
 
 
 class BaseInfoWindow(QWidget):

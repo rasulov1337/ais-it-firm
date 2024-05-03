@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtCore import pyqtSignal, pyqtSlot
 from PyQt6.QtWidgets import QWidget, QFormLayout, QLineEdit, QDateEdit, QCheckBox, QMessageBox, QTableWidgetItem, \
-    QHeaderView
+    QHeaderView, QLabel
 
 import consts
 from consts import DATE_FORMAT
@@ -26,7 +26,7 @@ class ClientOrdersWindow(QWidget):
     def __init__(self, id):
         super().__init__()
         uic.loadUi('client/client_orders.ui', self)
-        self.setStyleSheet(consts.stylesheet)
+        self.setStyleSheet(consts.STYLESHEET)
 
         self.le_order_id.setDisabled(True)
         self.le_price.setDisabled(True)
@@ -90,6 +90,6 @@ class ClientOrdersWindow(QWidget):
             dev_group_name = dev_group_repo_impl.get(row.dev_group_id).name
             print(dev_group_name)
             self.tw_programs.setItem(index, 0, QTableWidgetItem(row.name))
-            self.tw_programs.setItem(index, 1, QTableWidgetItem(row.repo))
+            self.tw_programs.setCellWidget(index, 1, QLabel('<a href={0}>{1}</a>'.format(row.repo, row.repo)))
             self.tw_programs.setItem(index, 2, QTableWidgetItem(row.tech_stack))
             self.tw_programs.setItem(index, 3, QTableWidgetItem(dev_group_name))

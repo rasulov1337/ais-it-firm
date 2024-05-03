@@ -7,7 +7,8 @@ DB_PASSWORD = '1'
 DATE_FORMAT = 'yyyy-MM-dd'
 
 
-stylesheet = """QWidget {
+STYLESHEET = """
+QWidget {
 	background: #262626;
 	color: white;
 	selection-background-color: #2cde85;

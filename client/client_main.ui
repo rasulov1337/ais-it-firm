@@ -6,51 +6,84 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>766</width>
+    <width>691</width>
     <height>543</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>30</y>
-     <width>491</width>
-     <height>411</height>
-    </rect>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>100</number>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="about_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>58</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Посмотреть информацию о себе</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="open_orders_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>58</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Посмотреть свои заказы</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+   <property name="topMargin">
+    <number>50</number>
+   </property>
+   <property name="rightMargin">
+    <number>100</number>
+   </property>
+   <property name="bottomMargin">
+    <number>50</number>
+   </property>
+   <item>
+    <widget class="QPushButton" name="about_btn">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>62</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">min-height: 60px;</string>
+     </property>
+     <property name="text">
+      <string>Посмотреть информацию о себе</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="open_orders_btn">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>62</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">min-height: 60px;</string>
+     </property>
+     <property name="text">
+      <string>Посмотреть свои заказы</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="create_report_btn">
+     <property name="styleSheet">
+      <string notr="true">min-height: 60px;
+</string>
+     </property>
+     <property name="text">
+      <string>Сформировать отчет по заказам</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="close_btn">
+     <property name="styleSheet">
+      <string notr="true">min-height: 60px;
+</string>
+     </property>
+     <property name="text">
+      <string>Выйти</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
