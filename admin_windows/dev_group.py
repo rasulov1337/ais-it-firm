@@ -46,6 +46,8 @@ class DevGroupInfoWindow(BaseInfoWindow):
         self.btns_widget.layout().addWidget(add_new_row_btn)
         self.btns_widget.layout().addWidget(del_selected_row_btn)
 
+        self.resize(1000, 600)
+
     def update(self):
         row_data = self.gather_data_from_gui_into_object()
 
@@ -107,7 +109,7 @@ class DevGroupInfoWindow(BaseInfoWindow):
             self.tw_employees.setItem(index, 1, QTableWidgetItem(row.fullname))
             self.tw_employees.setItem(index, 2, QTableWidgetItem(row.birth_date.toString('yyyy-MM-dd')))
             self.tw_employees.setItem(index, 3, QTableWidgetItem(row.hire_date.toString('yyyy-MM-dd')))
-            self.tw_employees.setItem(index, 4, QTableWidgetItem(row.salary))
+            self.tw_employees.setItem(index, 4, QTableWidgetItem(str(row.salary)))
 
     @pyqtSlot()
     def on_add_new_row_btn_clicked(self):

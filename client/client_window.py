@@ -41,4 +41,5 @@ class ClientWindow(QWidget):
 
     @pyqtSlot()
     def on_close_btn_clicked(self):
+        self.on_show_authwindow.emit()
         self.close()

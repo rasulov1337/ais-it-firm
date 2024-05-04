@@ -58,4 +58,5 @@ QComboBox {
 
 QDateEdit {
 	border: 1px solid white;
-}"""
+}
+"""

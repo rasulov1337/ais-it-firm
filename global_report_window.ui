@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>869</width>
-    <height>696</height>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,7 +52,7 @@ QLineEdit {
      <x>180</x>
      <y>30</y>
      <width>541</width>
-     <height>631</height>
+     <height>591</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -73,7 +73,7 @@ QLineEdit {
        </font>
       </property>
       <property name="text">
-       <string>АИС IT Фирмы</string>
+       <string>Отчеты</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -81,7 +81,7 @@ QLineEdit {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="clients_btn">
+     <widget class="QPushButton" name="all_orders_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -95,12 +95,12 @@ QLineEdit {
        </size>
       </property>
       <property name="text">
-       <string>Клиенты</string>
+       <string>Все заказы</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="dev_groups_btn">
+     <widget class="QPushButton" name="finished_orders_btn">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -108,7 +108,20 @@ QLineEdit {
        </size>
       </property>
       <property name="text">
-       <string>Группы разработки</string>
+       <string>Выполненные заказы</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="unfinished_orders_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>56</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Невыполненные заказы</string>
       </property>
      </widget>
     </item>
@@ -121,12 +134,12 @@ QLineEdit {
        </size>
       </property>
       <property name="text">
-       <string>Сотрудники</string>
+       <string>Сотрудники фирмы</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="orders_btn">
+     <widget class="QPushButton" name="hardware_btn">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -134,72 +147,7 @@ QLineEdit {
        </size>
       </property>
       <property name="text">
-       <string>Заказы</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="programs_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>56</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Программы</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="tech_eqs_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>56</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Тех. Оборудование</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="tech_stacks_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>56</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Технологический Стек</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="accounts_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>56</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Пользователи АИС</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="reports_btn">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>56</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Отчеты</string>
+       <string>Техническое оборудование фирмы</string>
       </property>
      </widget>
     </item>
@@ -208,8 +156,8 @@ QLineEdit {
   <widget class="QPushButton" name="back_btn">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>630</y>
+     <x>20</x>
+     <y>570</y>
      <width>91</width>
      <height>41</height>
     </rect>

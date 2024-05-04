@@ -131,7 +131,7 @@ QDateEdit {
          <string>&lt;-</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
@@ -157,7 +157,7 @@ QDateEdit {
          <string>-&gt;</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
@@ -180,7 +180,7 @@ QDateEdit {
          <string>Сохранить</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
@@ -209,7 +209,7 @@ QDateEdit {
          <string>Удалить</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>

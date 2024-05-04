@@ -53,7 +53,7 @@ class ClientRepositoryImpl(ClientRepository):
 
         self.db.open()
         if not self.db.open():
-            print('Unable to connect to the database: ', self.db.lastError().databaseText())
+            print('Unable to connect to the database')
             exit(-1)
 
     def create(self, data):
@@ -76,7 +76,7 @@ class ClientRepositoryImpl(ClientRepository):
         query.addBindValue(id)
 
         if not query.exec():
-            exit("Couldn't execute the query!" + self.db.lastError().databaseText())
+            exit("Couldn't execute the query!")
 
         query.next()
         return ClientModel(query.value(0),
@@ -114,7 +114,7 @@ class ClientRepositoryImpl(ClientRepository):
         query.prepare(query_text)
 
         if not query.exec():
-            exit("Couldn't execute the query!" + self.db.lastError().databaseText())
+            exit("Couldn't execute the query!")
 
         res = []
         while query.next():
@@ -133,7 +133,7 @@ class ClientRepositoryImpl(ClientRepository):
         query.prepare(query_text)
 
         if not query.exec():
-            exit("Couldn't execute the query!" + self.db.lastError().databaseText())
+            exit("Couldn't execute the query!")
 
         res = []
         while query.next():

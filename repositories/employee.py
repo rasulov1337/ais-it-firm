@@ -182,6 +182,7 @@ WHERE hardware.id=?"""
                                      query.value(5)))
 
         return res
+    
 
 
 employee_repo_impl = EmployeeRepositoryImpl()

@@ -79,7 +79,7 @@ class ClientOrdersWindow(QWidget):
         curr_data: OrderModel = self.data[self.current_index]
 
         self.le_order_id.setText(str(curr_data.id))
-        self.le_price.setText(curr_data.price)
+        self.le_price.setText(str(curr_data.price))
         self.deadline.setDate(curr_data.deadline)
         self.created_at.setDate(curr_data.creation_date)
         self.cb_is_done.setChecked(curr_data.done)
@@ -88,7 +88,6 @@ class ClientOrdersWindow(QWidget):
         self.tw_programs.setRowCount(len(table_data))
         for index, row in enumerate(table_data):
             dev_group_name = dev_group_repo_impl.get(row.dev_group_id).name
-            print(dev_group_name)
             self.tw_programs.setItem(index, 0, QTableWidgetItem(row.name))
             self.tw_programs.setCellWidget(index, 1, QLabel('<a href={0}>{1}</a>'.format(row.repo, row.repo)))
             self.tw_programs.setItem(index, 2, QTableWidgetItem(row.tech_stack))

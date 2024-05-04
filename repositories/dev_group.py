@@ -27,13 +27,27 @@ class DevGroupRepositoryImpl(DevGroupRepository):
         query.addBindValue(id)
 
         if not query.exec():
-            exit("Couldn't execute the query!" + self.db.lastError().databaseText())
+            print("E: Couldn't execute the query!")
+            return None
 
         query.next()
 
         return DevGroupModel(query.value(0),
                              query.value(1),
                              query.value(2))
+    
+    def get_name(self, id: int) -> str:
+        query_text = 'SELECT dev_groups.name FROM dev_groups WHERE id=?'
+        query = QSqlQuery(self.db)
+        query.prepare(query_text)
+        query.addBindValue(id)
+
+        if not query.exec():
+            exit("Couldn't execute the query!")
+
+        query.next()
+
+        return query.value(0)
 
     def get_all(self):
         query_text = 'SELECT * FROM dev_groups ORDER BY id'
@@ -41,7 +55,8 @@ class DevGroupRepositoryImpl(DevGroupRepository):
         query.prepare(query_text)
 
         if not query.exec():
-            exit("Couldn't execute the query!" + self.db.lastError().databaseText())
+            print("Couldn't execute the query!")
+            return None
 
         res = []
         while query.next():

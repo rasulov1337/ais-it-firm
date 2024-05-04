@@ -198,10 +198,6 @@ color: white;</string>
         <property name="text">
          <string>&lt;-</string>
         </property>
-        <property name="icon">
-         <iconset theme="go-previous">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
        </widget>
       </item>
       <item>
@@ -221,10 +217,6 @@ color: white;</string>
         <property name="text">
          <string>-&gt;</string>
         </property>
-        <property name="icon">
-         <iconset theme="go-previous">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
        </widget>
       </item>
       <item>
@@ -243,10 +235,6 @@ color: white;</string>
         </property>
         <property name="text">
          <string>Сохранить</string>
-        </property>
-        <property name="icon">
-         <iconset theme="go-previous">
-          <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
       </item>
@@ -272,10 +260,6 @@ color: white;</string>
         </property>
         <property name="text">
          <string>Удалить</string>
-        </property>
-        <property name="icon">
-         <iconset theme="go-previous">
-          <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
       </item>

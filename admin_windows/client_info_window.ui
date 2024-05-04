@@ -211,7 +211,7 @@ QLineEdit {
          <string>&lt;-</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
@@ -234,7 +234,7 @@ QLineEdit {
          <string>-&gt;</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
@@ -257,7 +257,7 @@ QLineEdit {
          <string>Сохранить</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>
@@ -286,7 +286,7 @@ QLineEdit {
          <string>Удалить</string>
         </property>
         <property name="icon">
-         <iconset theme="go-previous">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>

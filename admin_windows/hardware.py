@@ -47,6 +47,10 @@ class HardwareInfoWindow(BaseInfoWindow):
         self.form_layout.addRow('ОЗУ', self.sb_ram)
         self.form_layout.addRow(self.tw_employees)
 
+        self.sb_ram.setMinimumWidth(100)
+        self.sb_ram.setMinimumHeight(20)
+
+
     def gather_data_from_gui_into_object(self):
         curr_id = self.data[self.current_index].id
         return HardwareModel(curr_id,
@@ -72,6 +76,6 @@ class HardwareInfoWindow(BaseInfoWindow):
             dev_group_name = dev_group_repo_impl.get(row.dev_group_id).name
             self.tw_employees.setItem(index, 0, QTableWidgetItem(row.fullname))
             self.tw_employees.setItem(index, 1, QTableWidgetItem(row.birth_date.toString('yyyy-MM-dd')))
-            self.tw_employees.setItem(index, 2, QTableWidgetItem(row.salary))
+            self.tw_employees.setItem(index, 2, QTableWidgetItem(str(row.salary)))
             self.tw_employees.setItem(index, 3, QTableWidgetItem(row.hire_date.toString('yyyy-MM-dd')))
             self.tw_employees.setItem(index, 4, QTableWidgetItem(dev_group_name))

@@ -38,6 +38,9 @@ class OrderInfoWindow(BaseInfoWindow):
         self.tw_programs.setHorizontalHeaderItem(2, QTableWidgetItem('Технологический стек'))
         self.tw_programs.setHorizontalHeaderItem(3, QTableWidgetItem('Группа разработки'))
         self.tw_programs.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+        self.tw_programs.setSelectionMode(QTableWidget.SelectionMode.NoSelection)
+        self.tw_programs.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
+
 
         self.form_layout.addRow('Номер заказа', self.le_order_id)
         self.form_layout.addRow('Стоимость', self.le_price)

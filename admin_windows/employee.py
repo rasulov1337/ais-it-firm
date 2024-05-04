@@ -46,7 +46,7 @@ class EmployeeInfoWindow(QWidget):
         curr_data = self.data[self.current_index]
 
         self.le_fullname.setText(curr_data.fullname)
-        self.le_salary.setText(curr_data.salary)
+        self.le_salary.setText(str(curr_data.salary))
         self.de_hire.setDate(curr_data.hire_date)
         self.de_birth.setDate(curr_data.birth_date)
         self.cb_group.setCurrentText(dev_group_repo_impl.get(curr_data.dev_group_id).name)

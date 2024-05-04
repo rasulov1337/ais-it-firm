@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         self.signin_btn.clicked.connect(self.sign_in)
 
         self.admin_window = AdminWindow()
-        self.admin_window.on_show_authwindow.connect(self.show)
+        self.admin_window.on_show_authwindow.connect(self.erase_fields_and_show_auth_menu)
 
     def on_show_info_btn_clicked(self):
         msg_box = QMessageBox(parent=self,
@@ -56,5 +56,12 @@ class MainWindow(QMainWindow):
             self.hide()
         elif user.type == AccountModel.Type.USER:
             self.client_window = ClientWindow(user.client_id)
+            self.client_window.on_show_authwindow.connect(self.erase_fields_and_show_auth_menu)
             self.client_window.show()
             self.hide()
+
+
+    def erase_fields_and_show_auth_menu(self):
+        self.le_login.setText('')
+        self.le_password.setText('')
+        self.show()

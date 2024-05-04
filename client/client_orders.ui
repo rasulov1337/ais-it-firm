@@ -158,10 +158,6 @@
            <property name="text">
             <string>&lt;-</string>
            </property>
-           <property name="icon">
-            <iconset theme="go-previous">
-             <normaloff>../admin_windows</normaloff>../admin_windows</iconset>
-           </property>
           </widget>
          </item>
          <item>
@@ -180,10 +176,6 @@
            </property>
            <property name="text">
             <string>-&gt;</string>
-           </property>
-           <property name="icon">
-            <iconset theme="go-previous">
-             <normaloff>../admin_windows</normaloff>../admin_windows</iconset>
            </property>
           </widget>
          </item>

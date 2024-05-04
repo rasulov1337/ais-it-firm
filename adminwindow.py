@@ -9,6 +9,7 @@ from admin_windows.order import OrderInfoWindow
 from admin_windows.program import ProgramInfoWindow
 from admin_windows.hardware import HardwareInfoWindow
 from admin_windows.tech_stack import TechStackInfoWindow
+from global_report_window import GlobalReportWindow
 
 
 class AdminWindow(QWidget):
@@ -62,3 +63,8 @@ class AdminWindow(QWidget):
     def on_accounts_btn_clicked(self):
         self.account_info_window = AccountInfoWindow()
         self.account_info_window.show()
+
+    @pyqtSlot()
+    def on_reports_btn_clicked(self):
+        self.global_report_window = GlobalReportWindow()
+        self.global_report_window.show()
