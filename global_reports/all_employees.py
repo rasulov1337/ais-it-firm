@@ -29,7 +29,7 @@ class AllEmployeesWindow(QWidget):
         for index, data in enumerate(table_data):
             id_item = QTableWidgetItem(str(data.id))
             id_item.setTextAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
-            self.tw.setItem(index, 0, id_item)
+            self.tw.setItem(index, 0, QTableWidgetItem(data.fullname))
             self.tw.setItem(index, 1, QTableWidgetItem(data.birth_date.toString(consts.DATE_FORMAT)))
             self.tw.setItem(index, 2, QTableWidgetItem(str(data.salary)))
             self.tw.setItem(index, 3, QTableWidgetItem(dev_group_repo_impl.get_name(data.dev_group_id)))
